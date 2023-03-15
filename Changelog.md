@@ -1,3 +1,19 @@
+**V1.12.11 - Updates**
+- Allowed the active state of the hall sensors for auto homing RA and DEC to be configured.
+
+**V1.12.10 - Updates**
+- Fixed a problem where slewing to targets more than 90degrees from the pole (in either hemisphere) would result in a target mirrored around the 'equator'.
+
+**V1.12.9 - Updates**
+- Fixed integer size mismatch for RA and DEC speeds. This caused integer overflows when RA was configured for 256 step microstepping.
+- Added some logging at boot to show stepper variables.
+
+**V1.12.8 - Updates**
+- Fixed compile error caused by GPS being enabled in RAMPS environment.
+
+**V1.12.7 - Updates**
+- Fixed a bug where southern hemisphere setting would not persist between session.
+
 **V1.12.6 - Updates**
 - Fixed all known issues related to running in the southern hemisphere.
 - Added support for DIR inversion to interrupt stepper library.

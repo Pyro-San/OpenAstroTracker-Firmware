@@ -454,6 +454,10 @@
 // Enable homing in your local configuration. Do not edit here!
 #ifndef USE_HALL_SENSOR_RA_AUTOHOME
     #define USE_HALL_SENSOR_RA_AUTOHOME 0
+#elif USE_HALL_SENSOR_RA_AUTOHOME == 1
+    #ifndef RA_HOMING_SENSOR_ACTIVE_STATE
+        #define RA_HOMING_SENSOR_ACTIVE_STATE LOW
+    #endif
 #endif
 
 //////////////////////////////////////////
@@ -462,6 +466,10 @@
 // Enable homing in your local configuration. Do not edit here!
 #ifndef USE_HALL_SENSOR_DEC_AUTOHOME
     #define USE_HALL_SENSOR_DEC_AUTOHOME 0
+#elif USE_HALL_SENSOR_DEC_AUTOHOME == 1
+    #ifndef DEC_HOMING_SENSOR_ACTIVE_STATE
+        #define DEC_HOMING_SENSOR_ACTIVE_STATE LOW
+    #endif
 #endif
 
 // RA EndSwitch support
@@ -581,13 +589,7 @@
 
 // GPS
 #if USE_GPS == 1
-    #if defined(ESP32)
-        #define GPS_SERIAL_PORT Serial2  // TODO: Resolve potential conflict with RA_SERIAL_PORT & DEC_SERIAL_PORT
-        #define GPS_BAUD_RATE   9600
-    #elif defined(__AVR_ATmega2560__)
-        #define GPS_SERIAL_PORT Serial1
-        #define GPS_BAUD_RATE   9600
-    #endif
+    #define GPS_BAUD_RATE 9600
 #endif
 
 ////////////////////////////
